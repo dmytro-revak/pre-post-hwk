@@ -1,0 +1,25 @@
+doctype
+html
+  head
+    meta
+    link(rel="stylesheet" href="../dest/styles/style.css")
+    link(rel="stylesheet" href="../dest/styles/normalise.css")
+    title
+  body
+    section.first-section
+      .google
+        .google-title
+          - var letters = ["G", "o", "o", "g", "l", "e", "!"];
+          for letter in letters
+            span.title-letters #{letter}
+      .search-elements
+        h3 Search the web using Google!
+        input(name="search-line" type="text" class="search-line")
+        .search-buttons
+          select.results(name="results")
+            - for (var i=10; i >=1; i--) {
+              option(value=i  + " result") #{i} results
+            - }
+          input(value="Google Search" type="submit")
+          input(value="I'm feeling lucky" type="button")
+        h3 Index contains ~25 million pages (soon to be much bigger)
