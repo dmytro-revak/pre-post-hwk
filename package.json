@@ -1,0 +1,24 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-html": "node_modules/.bin/pug -o dest/ src/",
+    "build-html-dev": "node_modules/.bin/pug -o dest/ --pretty src/",
+    "build-css": "node_modules/.bin/node-sass src/styles/ -o dest/styles --output-style compressed",
+    "build-css-dev": "node_modules/.bin/node-sass src/styles/ -o dest/styles --output-style expanded",
+    "html-lint": "node_modules/.bin/htmlhint dest/",
+    "css-lint": "node_modules/.bin/stylelint dest/styles/*.css",
+    "css-autoprefixer": "node_modules/.bin/postcss --use autoprefixer dest/styles/*.css -r",
+    "build": "npm run build-html && npm run build-css",
+    "serve": "node_modules/.bin/http-server dest/ -o"
+  },
+  "dependencies": {
+    "autoprefixer": "^6.5.3",
+    "htmlhint": "^0.9.13",
+    "http-server": "^0.9.0",
+    "node-sass": "^3.13.0",
+    "postcss-cli": "^2.6.0",
+    "pug": "^2.0.0-beta6",
+    "pug-cli": "^1.0.0-alpha6",
+    "stylelint": "^7.6.0"
+  }
+}
