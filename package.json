@@ -1,24 +1,43 @@
 {
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-html": "node_modules/.bin/pug -o dest/ src/",
-    "build-html-dev": "node_modules/.bin/pug -o dest/ --pretty src/",
-    "build-css": "node_modules/.bin/node-sass src/styles/ -o dest/styles --output-style compressed",
-    "build-css-dev": "node_modules/.bin/node-sass src/styles/ -o dest/styles --output-style expanded",
+    "postinstall": "bower install",
+
+
+    "form-html": "node_modules/.bin/pug -o dest/ src/",
+    "form-html-dev": "node_modules/.bin/pug -o dest/ --pretty src/",
+    "form-css": "node_modules/.bin/node-sass src/styles/ -o dest/styles --output-style compressed",
+    "form-css-dev": "node_modules/.bin/node-sass src/styles/ -o dest/styles --output-style expanded",
+    "add-styles": "node_modules/.bin/wiredep -s dest/index.html",
+
+    "form-app": "npm run form-html && npm run form-css && npm run add-styles",
+    "form-app-dev": "npm run form-html-dev && npm run form-css-dev && npm run add-styles",
+
+
     "html-lint": "node_modules/.bin/htmlhint dest/",
     "css-lint": "node_modules/.bin/stylelint dest/styles/*.css",
+    "lint-app": "npm run html-lint && npm run css-lint",
+
+
     "css-autoprefixer": "node_modules/.bin/postcss --use autoprefixer dest/styles/*.css -r",
-    "build": "npm run build-html && npm run build-css",
-    "serve": "node_modules/.bin/http-server dest/ -o"
+
+    
+    "build": "npm run form-app && npm run lint-app && npm run css-autoprefixer && npm run serve",
+    "build-dev": "npm run form-app-dev && npm run lint-app && npm run css-autoprefixer && npm run serve",
+
+    "serve": "node_modules/.bin/http-server ./ -o"
   },
   "dependencies": {
     "autoprefixer": "^6.5.3",
+    "bower": "^1.8.0",
     "htmlhint": "^0.9.13",
     "http-server": "^0.9.0",
     "node-sass": "^3.13.0",
     "postcss-cli": "^2.6.0",
     "pug": "^2.0.0-beta6",
     "pug-cli": "^1.0.0-alpha6",
-    "stylelint": "^7.6.0"
+    "stylelint": "^7.6.0",
+    "wiredep": "^4.0.0",
+    "wiredep-cli": "^0.1.0"
   }
 }
