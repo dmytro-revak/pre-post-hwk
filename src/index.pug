@@ -3,7 +3,8 @@ html
     head
         meta
         link(rel="stylesheet" href="styles/normalise.css")
-        title
+        link(rel="stylesheet" href="styles/style.css")
+        title Pre/Post HWK
     body
         section.first-section
             .google
@@ -22,3 +23,30 @@ html
                     input(value="Google Search" type="submit")
                     input(value="I'm feeling lucky" type="button")
                 h3 Index contains ~25 million pages (soon to be much bigger)
+    
+        // second section
+        .second-section
+            - var url = '#';
+            h2.about-link
+                a(href='' + url ) About Google!
+            br
+            a.searches(href='' + url) Stanford Search
+            a.searches(href='' + url) Linux Search
+            br 
+            .main-section
+                span.inside Get Google! updates monthly!
+                br
+                form
+                    input.buttons(
+                        type='email'
+                        name='mail'
+                        placeholder='your e-mail'
+                    )
+                    input.buttons(
+                        type='submit'
+                        name='subscribe'
+                        value='Subscribe'
+                    )
+                    a.archive(href='' + url) Archive
+            footer.copyrights
+                small Copyright ©1997-8 Stanford University
