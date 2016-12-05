@@ -1,31 +1,35 @@
 {
+  "name": "pre-post-hwk",
+  "description": "All commands are in json file",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmytro-revak/pre-post-hwk.git"
+  },
+  "author": "Revak Dmytro and Andrii Kozakevych",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmytro-revak/pre-post-hwk/issues"
+  },
+  "homepage": "https://github.com/dmytro-revak/pre-post-hwk#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "bower install",
-
-
-    "form-html": "node_modules/.bin/pug -o dest/ src/",
-    "form-html-dev": "node_modules/.bin/pug -o dest/ --pretty src/",
-    "form-css": "node_modules/.bin/node-sass src/styles/ -o dest/styles --output-style compressed",
-    "form-css-dev": "node_modules/.bin/node-sass src/styles/ -o dest/styles --output-style expanded",
-    "add-styles": "node_modules/.bin/wiredep -s dest/index.html",
-
+    "form-html": "pug -o dest/ src/",
+    "form-html-dev": "pug -o dest/ --pretty src/",
+    "form-css": "node-sass src/styles/ -o dest/styles --output-style compressed",
+    "form-css-dev": "node-sass src/styles/ -o dest/styles --output-style expanded",
+    "add-styles": "wiredep -s dest/index.html",
     "form-app": "npm run form-html && npm run form-css && npm run add-styles",
     "form-app-dev": "npm run form-html-dev && npm run form-css-dev && npm run add-styles",
-
-
-    "html-lint": "node_modules/.bin/htmlhint dest/",
-    "css-lint": "node_modules/.bin/stylelint dest/styles/*.css",
+    "html-lint": "htmlhint dest/",
+    "css-lint": "stylelint dest/styles/*.css",
     "lint-app": "npm run html-lint && npm run css-lint",
-
-
-    "css-autoprefixer": "node_modules/.bin/postcss --use autoprefixer dest/styles/*.css -r",
-
-    
+    "css-autoprefixer": "postcss --use autoprefixer dest/styles/*.css -r",
+    "serve": "http-server ./ -o",
     "build": "npm run form-app && npm run lint-app && npm run css-autoprefixer && npm run serve",
-    "build-dev": "npm run form-app-dev && npm run lint-app && npm run css-autoprefixer && npm run serve",
-
-    "serve": "node_modules/.bin/http-server ./ -o"
+    "build-dev": "npm run form-app-dev && npm run lint-app && npm run css-autoprefixer && npm run serve"
   },
   "dependencies": {
     "autoprefixer": "^6.5.3",
