@@ -27,7 +27,7 @@
     "css-lint": "stylelint dest/styles/*.css",
     "lint-app": "npm run html-lint && npm run css-lint",
     "css-autoprefixer": "postcss --use autoprefixer dest/styles/*.css -r",
-    "serve": "http-server ./ -o",
+    "serve": "http-server ./ -o http://127.0.0.1:8080/dest/index.html",
     "build": "npm run form-app && npm run lint-app && npm run css-autoprefixer && npm run serve",
     "build-dev": "npm run form-app-dev && npm run lint-app && npm run css-autoprefixer && npm run serve"
   },
