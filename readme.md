@@ -1,7 +1,7 @@
-#Pre/Post-processors homework
+# Pre/Post-processors homework
 ___
 
-##Commands list:
+## Commands list:
 
 - `$ npm install` - install all node modules and bower components for application
 
