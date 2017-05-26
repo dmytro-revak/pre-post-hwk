@@ -1,5 +1,4 @@
 ## Pre/Post-processors homework
-___
 
 ### Commands list:
 
